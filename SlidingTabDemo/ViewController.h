@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlidingMenu.h"
+#import "MenuItem.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIScrollViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UIScrollView * mainScrollView;
+@property (nonatomic, strong) SlidingMenu * slidingMenu;
+@property (nonatomic, strong) IBOutlet UIView * tabView;
+@property (nonatomic, strong) NSArray * arrayItems;
 
 
 @end

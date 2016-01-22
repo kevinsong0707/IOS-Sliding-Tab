@@ -15,6 +15,8 @@
 		C395C6541C5251D10055C95C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C395C6521C5251D10055C95C /* LaunchScreen.storyboard */; };
 		C395C65F1C5251D20055C95C /* SlidingTabDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C395C65E1C5251D20055C95C /* SlidingTabDemoTests.m */; };
 		C395C66A1C5251D20055C95C /* SlidingTabDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C395C6691C5251D20055C95C /* SlidingTabDemoUITests.m */; };
+		C395C67E1C52545B0055C95C /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C395C67B1C52545B0055C95C /* MenuItem.m */; };
+		C395C67F1C52545B0055C95C /* SlidingMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C395C67D1C52545B0055C95C /* SlidingMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		C395C6651C5251D20055C95C /* SlidingTabDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlidingTabDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C395C6691C5251D20055C95C /* SlidingTabDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlidingTabDemoUITests.m; sourceTree = "<group>"; };
 		C395C66B1C5251D20055C95C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C395C67A1C52545B0055C95C /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		C395C67B1C52545B0055C95C /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		C395C67C1C52545B0055C95C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
+		C395C67D1C52545B0055C95C /* SlidingMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		C395C6431C5251D10055C95C /* SlidingTabDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C395C6791C5254480055C95C /* SlidingTab */,
 				C395C6471C5251D10055C95C /* AppDelegate.h */,
 				C395C6481C5251D10055C95C /* AppDelegate.m */,
 				C395C64A1C5251D10055C95C /* ViewController.h */,
@@ -138,6 +145,17 @@
 				C395C66B1C5251D20055C95C /* Info.plist */,
 			);
 			path = SlidingTabDemoUITests;
+			sourceTree = "<group>";
+		};
+		C395C6791C5254480055C95C /* SlidingTab */ = {
+			isa = PBXGroup;
+			children = (
+				C395C67A1C52545B0055C95C /* MenuItem.h */,
+				C395C67B1C52545B0055C95C /* MenuItem.m */,
+				C395C67C1C52545B0055C95C /* SlidingMenu.h */,
+				C395C67D1C52545B0055C95C /* SlidingMenu.m */,
+			);
+			name = SlidingTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C395C64C1C5251D10055C95C /* ViewController.m in Sources */,
+				C395C67E1C52545B0055C95C /* MenuItem.m in Sources */,
 				C395C6491C5251D10055C95C /* AppDelegate.m in Sources */,
+				C395C67F1C52545B0055C95C /* SlidingMenu.m in Sources */,
 				C395C6461C5251D10055C95C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

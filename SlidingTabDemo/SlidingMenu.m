@@ -86,7 +86,7 @@
         CGSize stringSize = [tempItem sizeWithAttributes:@{NSFontAttributeName:self.menuItemFont}];
         width = width + 2 * self.menuItemPadding + stringSize.width;
         
-        URMenuItem * item = [[URMenuItem alloc] init];
+        MenuItem * item = [[MenuItem alloc] init];
         [item setMenuItemId:[NSNumber numberWithInt:(i+1)]];
         [item setMenuItemName:tempItem];
         [item setMenuItemWidth:(2 * self.menuItemPadding + stringSize.width)];
@@ -118,16 +118,16 @@
     for (int i= 0; i<[self.menuButtons count]; i++) {
         if (i==0) {
             UIButton * button = [self.menuButtons objectAtIndex:i];
-            URMenuItem * item = [self.menuItems objectAtIndex:i];
+            MenuItem * item = [self.menuItems objectAtIndex:i];
             [button setFrame:CGRectMake(0, 5, item.menuItemWidth, self.menuItemHeight)];
             [self.menuScrollView addSubview:button];
             [self.underLine setFrame:CGRectMake(button.bounds.origin.x, self.paddingTop, button.bounds.size.width, self.underLineHeight)];
         }else{
             UIButton * button = [self.menuButtons objectAtIndex:i];
-            URMenuItem * item = [self.menuItems objectAtIndex:i];
+            MenuItem * item = [self.menuItems objectAtIndex:i];
             int width = 0;
             for (int j=0; j<i; j++) {
-                URMenuItem * temp = [self.menuItems objectAtIndex:j];
+                MenuItem * temp = [self.menuItems objectAtIndex:j];
                 width = width + temp.menuItemWidth;
             }
             [button setFrame:CGRectMake(width, 5, item.menuItemWidth, self.menuItemHeight)];
@@ -185,7 +185,7 @@
     }
     self.currentItem = (int)sender.tag;
     if (update) {
-        [self.delegate URMenuItemPressed:(int)sender.tag];
+        [self.delegate MenuItemPressed:(int)sender.tag];
     }
 }
 /*
