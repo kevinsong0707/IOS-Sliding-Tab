@@ -10,9 +10,9 @@
 #import "SlidingMenu.h"
 #import "MenuItem.h"
 
-@interface ViewController : UIViewController<UIScrollViewDelegate>
+@interface ViewController : UIViewController<UIScrollViewDelegate, SlidingMenuDelegate>
 
-@property (nonatomic, strong) IBOutlet UIScrollView * mainScrollView;
+@property (nonatomic, strong) UIScrollView * mainScrollView;
 @property (nonatomic, strong) SlidingMenu * slidingMenu;
 @property (nonatomic, strong) IBOutlet UIView * tabView;
 @property (nonatomic, strong) NSArray * arrayItems;

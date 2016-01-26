@@ -25,10 +25,19 @@
     
     self.slidingMenu = [[SlidingMenu alloc] initWithMenuItems:self.arrayItems withFrame:CGRectMake(0, 0, self.view.bounds.size.width, 40)];
     
+    self.slidingMenu.delegate = self;
+    
     self.tabView.backgroundColor = [UIColor blackColor];
     [self.tabView addSubview:self.slidingMenu];
     
+    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 84, self.view.bounds.size.width, self.view.bounds.size.height - 84)];
+    
+    self.mainScrollView.delegate = self;
+    self.mainScrollView.pagingEnabled = YES;
+    
     [self.mainScrollView setContentSize:CGSizeMake(self.view.bounds.size.width* [self.arrayItems count], self.view.bounds.size.height - 84)];
+    
+    [self.view addSubview:self.mainScrollView];
 
     [self AddTitleToPage];
 }
@@ -37,21 +46,31 @@
 {
     for (int i=0; i<[self.arrayItems count]; i++) {
         
-        UILabel * temp = [[UILabel alloc] initWithFrame:CGRectMake(i*self.view.bounds.size.width, 200, self.view.bounds.size.width, 50)];
+        UILabel * temp = [[UILabel alloc] initWithFrame:CGRectMake(10, 200, 300, 50)];
         
+        UIView * pageView = [[UIView alloc] initWithFrame:CGRectMake(i*320, 0, self.view.bounds.size.width, self.view.bounds.size.height-84)];
+        
+        [pageView addSubview:temp];
         temp.text = [ self.arrayItems objectAtIndex:i];
         temp.textAlignment= NSTextAlignmentCenter;
-        [self.mainScrollView addSubview:temp];
+        [self.mainScrollView addSubview:pageView];
     }
+
+    UIView * pageView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-84)];
+    [self.mainScrollView addSubview:pageView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView
 {
     
     CGFloat pageWidth = _scrollView.frame.size.width;
-    int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
+    int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 2;
     [self.slidingMenu setCurrentActiveItem:page];
+}
+
+- (void)MenuItemPressed:(int)page
+{
+    [self.mainScrollView setContentOffset:CGPointMake((page-1)*self.view.bounds.size.width, 0)];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -66,11 +66,6 @@
             break;
         }
     }
-    
-    //due to multipages under one tab
-    if ((currentPage == 0 && self.currentItem == 1) || (currentPage == 1 && self.currentItem == 1 )){
-        return;
-    }
     [self MenuButtonPressed:button UpdatePager:NO];
 }
 
@@ -183,7 +178,7 @@
             }];
         }
     }
-    self.currentItem = (int)sender.tag;
+    self.currentItem = (int)sender.tag + 1;
     if (update) {
         [self.delegate MenuItemPressed:(int)sender.tag];
     }
